@@ -69,16 +69,41 @@ class ReadDataFrame :
         print("");
 
     def getValeurMin(self):
-        print("");
+        valeurMin = "";
+        print("Les valeurs minimales des variables quantitatives sont :")
+        for i in range(0, len(self.listeNomsVariablesQuantitatives)):
+            colonneMin = self.listeNomsVariablesQuantitatives[i] + " -> ";
+            valeurMin += colonneMin + self.dataFrame[self.listeNomsVariablesQuantitatives[i]].min().__str__() + "\n";
+        return valeurMin;
 
     def getValeurMax(self):
-        print("");
+        valeurMax = "";
+        print("Les valeurs maximales des variables quantitatives sont :")
+        for i in range(0, len(self.listeNomsVariablesQuantitatives)):
+            colonneMax = self.listeNomsVariablesQuantitatives[i] + " -> ";
+            valeurMax += colonneMax + self.dataFrame[self.listeNomsVariablesQuantitatives[i]].max().__str__() + "\n";
+        return valeurMax;
 
     def getMediane(self):
-        print("");
+        valeurMediane = "";
+        print("Les valeurs medianes des variables quantitatives sont :")
+        for i in range(0, len(self.listeNomsVariablesQuantitatives)):
+            colonneMediane = self.listeNomsVariablesQuantitatives[i] + " -> ";
+            valeurMediane += colonneMediane + self.dataFrame[self.listeNomsVariablesQuantitatives[i]].median().__str__() + "\n";
+        return valeurMediane;
 
     def getMoyenne(self):
-        print("");
+        valeurMoyenne = "";
+        print("Les moyennes des variables quantitatives sont :")
+        for i in range(0, len(self.listeNomsVariablesQuantitatives)):
+            colonneMoyenne = self.listeNomsVariablesQuantitatives[i] + " -> ";
+            valeurMoyenne += colonneMoyenne + self.dataFrame[self.listeNomsVariablesQuantitatives[i]].mean().__str__() + "\n";
+        return valeurMoyenne;
 
     def getEcartType(self):
-        print("");
+        valeurEcartType = "";
+        print("Les ecarts types des variables quantitatives sont :")
+        for i in range(0, len(self.listeNomsVariablesQuantitatives)):
+            colonneEcartType = self.listeNomsVariablesQuantitatives[i] + " -> ";
+            valeurEcartType += colonneEcartType + self.dataFrame[self.listeNomsVariablesQuantitatives[i]].std().__str__() + "\n";
+        return valeurEcartType;

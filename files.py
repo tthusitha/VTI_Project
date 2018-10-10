@@ -53,3 +53,18 @@ class File :
 
     def getNomVariablesQuantitatives(self):
         return self.readDataFrame.getNomVariablesQuantitatives();
+
+    def getValeurMin(self):
+        return self.readDataFrame.getValeurMin();
+
+    def getValeurMax(self):
+        return self.readDataFrame.getValeurMax();
+
+    def getMediane(self):
+        return self.readDataFrame.getMediane();
+
+    def getMoyenne(self):
+        return self.readDataFrame.getMoyenne();
+
+    def getEcartType(self):
+        return self.readDataFrame.getEcartType();
