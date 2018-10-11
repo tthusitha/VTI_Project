@@ -24,18 +24,18 @@ print(mainFile.getNbObservations());
 
 print(mainFile.getNbVariablesQualitatives());
 
-print(mainFile.getNomVariablesQualitatives());
+print(mainFile.getListeNomsVariablesQualitatives());
 
 print(mainFile.getNbVariablesQuantitatives());
 
-print(mainFile.getNomVariablesQuantitatives());
+print(mainFile.getListeNomsVariablesQuantitatives());
 
 print(mainFile.getValeurMin());
 
-#print(mainFile.getValeurMax());
+print(mainFile.getValeurMax());
 
-#print(mainFile.getMediane());
+print(mainFile.getMediane());
 
-#print(mainFile.getMoyenne());
+print(mainFile.getMoyenne());
 
-#print(mainFile.getEcartType());
+print(mainFile.getEcartType());

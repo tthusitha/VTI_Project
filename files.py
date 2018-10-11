@@ -45,14 +45,22 @@ class File :
     def getNbVariablesQualitatives(self):
         return "Nombres de variables qualitatives : " + self.readDataFrame.getNbVariablesQualitatives().__str__();
 
-    def getNomVariablesQualitatives(self):
-        return self.readDataFrame.getNomVariablesQualitatives();
+    def getListeNomsVariablesQualitatives(self):
+        if self.readDataFrame.getNbVariablesQualitatives() != 0:
+            print("Nom des variables qualitatives :");
+            return self.readDataFrame.getListeVariablesQualitatives();
+        else:
+            return "Pas de variables qualitatives";
 
     def getNbVariablesQuantitatives(self):
         return "Nombres de variables quantitatives : " + self.readDataFrame.getNbVariablesQuantitatives().__str__();
 
-    def getNomVariablesQuantitatives(self):
-        return self.readDataFrame.getNomVariablesQuantitatives();
+    def getListeNomsVariablesQuantitatives(self):
+        if self.readDataFrame.getNbVariablesQuantitatives() != 0:
+            print("Nom des variables quantitaves :");
+            return self.readDataFrame.getListeVariablesQuantitatives();
+        else:
+            return "Pas de variables quantitatives";
 
     def getValeurMin(self):
         return self.readDataFrame.getValeurMin();
