@@ -15,7 +15,7 @@ class ReadDataFrame :
         liste = [];
         for i in range(0, len(self.dataFrame.dtypes)):
             if self.dataFrame.dtypes[i] == "object":
-                liste.append(self.dataFrame.dtypes[i]);
+                liste.append(self.dataFrame.columns.values[i]);
         return liste;
 
     #def getNbVariablesQualitatives(self):
@@ -42,7 +42,7 @@ class ReadDataFrame :
         liste = [];
         for i in range(0, len(self.dataFrame.dtypes)):
             if self.dataFrame.dtypes[i] == "float64" or self.dataFrame.dtypes[i] == "int64":
-                liste.append(self.dataFrame.dtypes[i]);
+                liste.append(self.dataFrame.columns.values[i]);
         return liste;
 
     #def getNbVariablesQuantitatives(self):
