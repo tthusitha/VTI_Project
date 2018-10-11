@@ -43,13 +43,13 @@ class File :
         return self.readDataFrame.getNbObservations();
 
     def getNbVariablesQualitatives(self):
-        return self.readDataFrame.getNbVariablesQualitatives();
+        return "Nombres de variables qualitatives : " + self.readDataFrame.getNbVariablesQualitatives().__str__();
 
     def getNomVariablesQualitatives(self):
         return self.readDataFrame.getNomVariablesQualitatives();
 
     def getNbVariablesQuantitatives(self):
-        return self.readDataFrame.getNbVariablesQuantitatives();
+        return "Nombres de variables quantitatives : " + self.readDataFrame.getNbVariablesQuantitatives().__str__();
 
     def getNomVariablesQuantitatives(self):
         return self.readDataFrame.getNomVariablesQuantitatives();

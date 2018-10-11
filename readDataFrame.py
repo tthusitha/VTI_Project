@@ -18,19 +18,22 @@ class ReadDataFrame :
                 liste.append(self.dataFrame.dtypes[i]);
         return liste;
 
+    #def getNbVariablesQualitatives(self):
+     #   result = 0;
+      #  for i in range(0, len(self.getListeVariablesQualitatives())):
+       #     result += 1;
+        #    self.listeNomsVariablesQualitatives = self.dataFrame.columns.values;
+        #return "Nombres de variables qualitatives : " + result.__str__();
+
     def getNbVariablesQualitatives(self):
-        result = 0;
-        for i in range(0, len(self.getListeVariablesQualitatives())):
-            result += 1;
-            self.listeNomsVariablesQualitatives = self.dataFrame.columns.values;
-        return "Nombres de variables qualitatives : " + result.__str__();
+        return len(self.getListeVariablesQualitatives());
 
     def getNomVariablesQualitatives(self):
-        nom = "";
-        if len(self.listeNomsVariablesQualitatives) != 0:
+        nom = [];
+        if self.getNbVariablesQualitatives() != 0:
             print("Nom des variables qualitatives :");
-            for i in range(0, len(self.listeNomsVariablesQualitatives)):
-                nom += self.listeNomsVariablesQualitatives[i] + "\n";
+            for i in range(0, self.getNbVariablesQualitatives()):
+                nom.append(self.getListeVariablesQualitatives()[i]);
             return nom;
         else:
             return "Pas de variables qualitatives";
@@ -42,19 +45,22 @@ class ReadDataFrame :
                 liste.append(self.dataFrame.dtypes[i]);
         return liste;
 
+    #def getNbVariablesQuantitatives(self):
+     #   result = 0;
+     #   for i in range(0, len(self.getListeVariablesQuantitatives())):
+    #        result += 1;
+     #       self.listeNomsVariablesQuantitatives = self.dataFrame.columns.values;
+      #  return "Nombres de variables quantitatives : " + result.__str__();
+
     def getNbVariablesQuantitatives(self):
-        result = 0;
-        for i in range(0, len(self.getListeVariablesQuantitatives())):
-            result += 1;
-            self.listeNomsVariablesQuantitatives = self.dataFrame.columns.values;
-        return "Nombres de variables quantitatives : " + result.__str__();
+        return len(self.getListeVariablesQuantitatives());
 
     def getNomVariablesQuantitatives(self):
-        nom = "";
-        if len(self.listeNomsVariablesQuantitatives) != 0:
+        nom = [];
+        if self.listeNomsVariablesQuantitatives != 0:
             print("Nom des variables quantitaves :");
-            for i in range(0, len(self.listeNomsVariablesQuantitatives)):
-                nom += self.listeNomsVariablesQuantitatives[i] + "\n";
+            for i in range(0, self.getNbVariablesQuantitatives()):
+                nom.append(self.getListeVariablesQuantitatives()[i]);
             return nom;
         else:
             return "Pas de variables quantitatives";
