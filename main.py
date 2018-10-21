@@ -48,4 +48,4 @@ print("Le nombre d'effectifs des variables qualitatives : \n" + dataFrame.getNbE
 
 print("Les modalités des variables qualitatives : \n" + dataFrame.getModalites());
 
-#print(dataFrame.getNbFrequences());
+print("Les fréquences des variables qualitatives : \n" + dataFrame.getNbFrequences());

@@ -41,7 +41,12 @@ class ReadDataFrame :
         return val;
 
     def getNbFrequences(self):
-        print("");
+        val = "";
+        for i in range(0, self.getNbVariablesQualitatives()):
+            effectif = self.dataFrame[self.getListeVariablesQualitatives()[i]].value_counts()
+            effectifTotal = self.dataFrame[self.getListeVariablesQualitatives()[i]].count()
+            val += (effectif/effectifTotal).__str__() + "\n";
+        return val;
 
     def getNbEffectifs(self):
         val = "";
