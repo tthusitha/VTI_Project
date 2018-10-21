@@ -96,8 +96,8 @@ class Afficher:
     # Afficher le menu principal
     def afficherMenuPrincipal(self):
         self.afficher("Que voulez-vous faire ?");
-        self.afficher("\u0009" + "f" + " - Afficher les informations sur le fichier");
-        self.afficher("\u0009" + "d" + " - Afficher les informations sur les donnees");
+        print("\u0009" + "f" + " - Afficher les informations sur le fichier");
+        print("\u0009" + "d" + " - Afficher les informations sur les donnees");
         self.afficher("\u0009" + "q" + " - Quitter");
 
     # Afficher le menu suivant
@@ -107,15 +107,15 @@ class Afficher:
     # Afficher le menu concernant les informations du fichier
     def afficherMenuFichier(self):
         self.afficher("\u0009" + "t" + " - Afficher la taille du fichier");
-        self.afficher("\u0009" + "e" + " - Afficher l'encodage du fichier");
-        self.afficher("\u0009" + "d" + " - Afficher la date de derniere modification du fichier");
-        self.afficher("\u0009" + "a" + " - Afficher l'ensemble des informations");
+        print("\u0009" + "e" + " - Afficher l'encodage du fichier");
+        print("\u0009" + "d" + " - Afficher la date de derniere modification du fichier");
+        print("\u0009" + "a" + " - Afficher l'ensemble des informations");
         self.afficher("\u0009" + "r" + " - Retour au menu principal");
 
     # Afficher le menu concernant les informations des données
     def afficherMenuDonnees(self):
         self.afficher("\u0009" + "v" + " - Afficher les informations sur les variables quantitatives");
-        self.afficher("\u0009" + "l" + " - Afficher les informations sur les variables qualitatives");
+        print("\u0009" + "l" + " - Afficher les informations sur les variables qualitatives");
         self.afficher("\u0009" + "r" + " - Retour au menu principal");
 
     # Afficher commande invalide
