@@ -1,7 +1,11 @@
+from pathlib import Path
+import pandas
+
 class ReadDataFrame :
 
-    def __init__(self, dataFrame):
-        self.dataFrame = dataFrame;
+    def __init__(self, file):
+        pathFichier = Path(file);
+        self.dataFrame = pandas.read_csv(pathFichier);
 
     def getNbVariables(self):
         return "Nombre de variable : " + self.dataFrame.shape[1].__str__();
