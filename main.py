@@ -20,7 +20,7 @@ print("Dernière modification : " + mainFile.getDateDerniereModification());
 
 print("Encodage : " + mainFile.getTypeEncodage());
 
-print(mainFile.toString());
+#print(mainFile.getInfosFichier());
 
 print("Nombre de variables : " + dataFrame.getNbVariables().__str__());
 
