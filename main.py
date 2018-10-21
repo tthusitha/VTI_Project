@@ -11,17 +11,17 @@ mainFile = files.File(path);
 
 dataFrame = readDataFrame.ReadDataFrame(path);
 
-print(mainFile.getSizeFile());
+print("Taille du fichier : " + mainFile.getSizeFile() + " Ko");
 
-print(mainFile.getLastModifiedDate());
+print("Dernière modification : " + mainFile.getLastModifiedDate());
 
-print(mainFile.getEncodingType());
+print("Encodage : " + mainFile.getEncodingType());
 
 print(mainFile.toString());
 
-print(dataFrame.getNbVariables());
+print("Nombre de variables : " + dataFrame.getNbVariables().__str__());
 
-print(dataFrame.getNbObservations());
+print("Nombre d'observations : " + dataFrame.getNbObservations().__str__());
 
 print("Nombres de variables qualitatives : " + dataFrame.getNbVariablesQualitatives().__str__());
 
@@ -31,12 +31,12 @@ print("Nombres de variables quantitatives : " + dataFrame.getNbVariablesQuantita
 
 print("Nom des variables quantitatives :" + dataFrame.getListeVariablesQuantitatives().__str__());
 
-#print(mainFile.getValeurMin());
+print(dataFrame.getValeurMin());
 
-#print(mainFile.getValeurMax());
+print(dataFrame.getValeurMax());
 
-#print(mainFile.getMediane());
+print(dataFrame.getMediane());
 
-#print(mainFile.getMoyenne());
+print(dataFrame.getMoyenne());
 
-#print(mainFile.getEcartType());
+print(dataFrame.getEcartType());

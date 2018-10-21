@@ -1,41 +1,29 @@
 from pathlib import Path
 from datetime import datetime
 import chardet
-import pandas
-from readDataFrame import ReadDataFrame
 
 class File :
 
     def __init__(self, path):
         self.path = path;
         self.pathFichier = Path(self.path);
-        self.readDataFrame = "";
 
     def getSizeFile(self) :
         tailleFichier = self.pathFichier.stat().st_size.__str__();
-        return "Taille du fichier : " + tailleFichier + " Ko";
+        return tailleFichier;
 
     def getLastModifiedDate(self) :
         derniereModifTime = self.pathFichier.stat().st_mtime;
         derniereModifTimeFormat = datetime.fromtimestamp(derniereModifTime).__str__();
-        return "Dernière modification : " + derniereModifTimeFormat;
+        return derniereModifTimeFormat;
 
     def getEncodingType(self) :
         bytes = self.pathFichier.read_bytes();
         encoding = chardet.detect(bytes);
-        return "Encodage : " + encoding.get("encoding");
+        return encoding.get("encoding");
 
     def toString(self):
         return self.getSizeFile() + ", "+ self.getLastModifiedDate() + ", " + self.getEncodingType();
-
-    #def getNbVariables(self):
-     #   return self.readDataFrame.getNbVariables();
-
-    #def getNbObservations(self):
-     #   return self.readDataFrame.getNbObservations();
-
-    #def getNbVariablesQualitatives(self):
-     #   return "Nombres de variables qualitatives : " + self.readDataFrame.getNbVariablesQualitatives().__str__();
 
     #def getListeNomsVariablesQualitatives(self):
      #   if self.readDataFrame.getNbVariablesQualitatives() != 0:
@@ -44,27 +32,9 @@ class File :
         #else:
          #   return "Pas de variables qualitatives";
 
-    #def getNbVariablesQuantitatives(self):
-     #   return "Nombres de variables quantitatives : " + self.readDataFrame.getNbVariablesQuantitatives().__str__();
-
     #def getListeNomsVariablesQuantitatives(self):
      #   if self.readDataFrame.getNbVariablesQuantitatives() != 0:
       #      print("Nom des variables quantitaves :");
        #     return self.readDataFrame.getListeVariablesQuantitatives();
         #else:
          #   return "Pas de variables quantitatives";
-
-    def getValeurMin(self):
-        return self.readDataFrame.getValeurMin();
-
-    def getValeurMax(self):
-        return self.readDataFrame.getValeurMax();
-
-    def getMediane(self):
-        return self.readDataFrame.getMediane();
-
-    def getMoyenne(self):
-        return self.readDataFrame.getMoyenne();
-
-    def getEcartType(self):
-        return self.readDataFrame.getEcartType();

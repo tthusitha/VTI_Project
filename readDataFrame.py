@@ -8,10 +8,10 @@ class ReadDataFrame :
         self.dataFrame = pandas.read_csv(pathFichier);
 
     def getNbVariables(self):
-        return "Nombre de variable : " + self.dataFrame.shape[1].__str__();
+        return self.dataFrame.shape[1];
 
     def getNbObservations(self):
-        return "Nombre d'observations : " + self.dataFrame.shape[0].__str__();
+        return self.dataFrame.shape[0];
 
     def getListeVariablesQualitatives(self):
         liste = [];
