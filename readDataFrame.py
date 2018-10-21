@@ -9,14 +9,15 @@ class ReadDataFrame :
         pathFichier = Path(file);
         self.dataFrame = pandas.read_csv(pathFichier);
 
-    #Recupère le nombre de variable du DataFrame
+    #Recupèrer le nombre de variable du DataFrame
     def getNbVariables(self):
         return self.dataFrame.shape[1];
 
+    #Recupèrer le nombre d'observation du DataFrame
     def getNbObservations(self):
         return self.dataFrame.shape[0];
 
-    #Recupère la liste des variables qualitatives
+    #Recupèrer la liste des variables qualitatives
     def getListeVariablesQualitatives(self):
         liste = [];
         for i in range(0, len(self.dataFrame.dtypes)):
@@ -24,11 +25,11 @@ class ReadDataFrame :
                 liste.append(self.dataFrame.columns.values[i]);
         return liste;
 
-    #Recupère le nombre de variable qualitative
+    #Recupèrer le nombre de variable qualitative
     def getNbVariablesQualitatives(self):
         return len(self.getListeVariablesQualitatives());
 
-    #Recupère la modalité des variables qualitatives
+    #Recupèrer la modalité des variables qualitatives
     def getModalites(self):
         val = "";
         for i in range(0, self.getNbVariablesQualitatives()):
@@ -36,14 +37,14 @@ class ReadDataFrame :
             val += colonne + self.dataFrame[self.getListeVariablesQualitatives()[i]].nunique().__str__() + "\n";
         return val;
 
-    #Récupère le nombre d'effectif des variables qualitatives
+    #Récupèrer le nombre d'effectif des variables qualitatives
     def getNbEffectifs(self):
         val = "";
         for i in range(0, self.getNbVariablesQualitatives()):
             val += self.dataFrame[self.getListeVariablesQualitatives()[i]].value_counts().__str__() + "\n";
         return val;
 
-    #Récupère la fréquence d'apparition d'une variable qualitative
+    #Récupèrer la fréquence d'apparition d'une variable qualitative
     def getNbFrequences(self):
         val = "";
         for i in range(0, self.getNbVariablesQualitatives()):
@@ -52,7 +53,7 @@ class ReadDataFrame :
             val += (effectif/effectifTotal).__str__() + "\n";
         return val;
 
-    #Recupère la liste des variables quantitatives
+    #Recupèrer la liste des variables quantitatives
     def getListeVariablesQuantitatives(self):
         liste = [];
         for i in range(0, len(self.dataFrame.dtypes)):
@@ -60,11 +61,11 @@ class ReadDataFrame :
                 liste.append(self.dataFrame.columns.values[i]);
         return liste;
 
-    #Recupère le nombre des variables quantitatives
+    #Recupèrer le nombre des variables quantitatives
     def getNbVariablesQuantitatives(self):
         return len(self.getListeVariablesQuantitatives());
 
-    #Recupère la valeur minimale des variables quantitatives
+    #Recupèrer la valeur minimale des variables quantitatives
     def getValeurMin(self):
         valeurMin = "";
         for i in range(0, self.getNbVariablesQuantitatives()):
@@ -72,7 +73,7 @@ class ReadDataFrame :
             valeurMin += colonneMin + self.dataFrame[self.getListeVariablesQuantitatives()[i]].min().__str__() + "\n";
         return valeurMin;
 
-    #Recupère la valeur maximale des variables quantitatives
+    #Recupèrer la valeur maximale des variables quantitatives
     def getValeurMax(self):
         valeurMax = "";
         for i in range(0, self.getNbVariablesQuantitatives()):
@@ -80,7 +81,7 @@ class ReadDataFrame :
             valeurMax += colonneMax + self.dataFrame[self.getListeVariablesQuantitatives()[i]].max().__str__() + "\n";
         return valeurMax;
 
-    #Récupère la médiane des variables quantitatives
+    #Récupèrer la médiane des variables quantitatives
     def getMediane(self):
         valeurMediane = "";
         for i in range(0, self.getNbVariablesQuantitatives()):
@@ -88,7 +89,7 @@ class ReadDataFrame :
             valeurMediane += colonneMediane + self.dataFrame[self.getListeVariablesQuantitatives()[i]].median().__str__() + "\n";
         return valeurMediane;
 
-    #Recupère la moyenne des variables quantitatives
+    #Recupèrer la moyenne des variables quantitatives
     def getMoyenne(self):
         valeurMoyenne = "";
         for i in range(0, self.getNbVariablesQuantitatives()):
@@ -96,7 +97,7 @@ class ReadDataFrame :
             valeurMoyenne += colonneMoyenne + self.dataFrame[self.getListeVariablesQuantitatives()[i]].mean().__str__() + "\n";
         return valeurMoyenne;
 
-    #Recupère l'écartType des variables quantitatives
+    #Recupèrer l'écartType des variables quantitatives
     def getEcartType(self):
         valeurEcartType = "";
         for i in range(0, self.getNbVariablesQuantitatives()):
