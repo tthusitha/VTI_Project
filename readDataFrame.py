@@ -23,21 +23,17 @@ class ReadDataFrame :
     def getNbVariablesQualitatives(self):
         return len(self.getListeVariablesQualitatives());
 
-    def getListeVariablesQuantitatives(self):
-        liste = [];
-        for i in range(0, len(self.dataFrame.dtypes)):
-            if self.dataFrame.dtypes[i] == "float64" or self.dataFrame.dtypes[i] == "int64":
-                liste.append(self.dataFrame.columns.values[i]);
-        return liste;
-
-    def getNbVariablesQuantitatives(self):
-        return len(self.getListeVariablesQuantitatives());
-
     def getModalites(self):
         val = "";
         for i in range(0, self.getNbVariablesQualitatives()):
             colonne = self.getListeVariablesQualitatives()[i] + " -> ";
             val += colonne + self.dataFrame[self.getListeVariablesQualitatives()[i]].nunique().__str__() + "\n";
+        return val;
+
+    def getNbEffectifs(self):
+        val = "";
+        for i in range(0, self.getNbVariablesQualitatives()):
+            val += self.dataFrame[self.getListeVariablesQualitatives()[i]].value_counts().__str__() + "\n";
         return val;
 
     def getNbFrequences(self):
@@ -48,11 +44,15 @@ class ReadDataFrame :
             val += (effectif/effectifTotal).__str__() + "\n";
         return val;
 
-    def getNbEffectifs(self):
-        val = "";
-        for i in range(0, self.getNbVariablesQualitatives()):
-            val += self.dataFrame[self.getListeVariablesQualitatives()[i]].value_counts().__str__() + "\n";
-        return val;
+    def getListeVariablesQuantitatives(self):
+        liste = [];
+        for i in range(0, len(self.dataFrame.dtypes)):
+            if self.dataFrame.dtypes[i] == "float64" or self.dataFrame.dtypes[i] == "int64":
+                liste.append(self.dataFrame.columns.values[i]);
+        return liste;
+
+    def getNbVariablesQuantitatives(self):
+        return len(self.getListeVariablesQuantitatives());
 
     def getValeurMin(self):
         valeurMin = "";
