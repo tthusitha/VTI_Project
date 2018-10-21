@@ -8,19 +8,19 @@ class File :
         self.path = path;
         self.pathFichier = Path(self.path);
 
-    def getSizeFile(self) :
+    def getTailleFichier(self) :
         tailleFichier = self.pathFichier.stat().st_size.__str__();
         return tailleFichier;
 
-    def getLastModifiedDate(self) :
+    def getDateDerniereModification(self) :
         derniereModifTime = self.pathFichier.stat().st_mtime;
         derniereModifTimeFormat = datetime.fromtimestamp(derniereModifTime).__str__();
         return derniereModifTimeFormat;
 
-    def getEncodingType(self) :
+    def getTypeEncodage(self) :
         bytes = self.pathFichier.read_bytes();
         encoding = chardet.detect(bytes);
         return encoding.get("encoding");
 
     def toString(self):
-        return self.getSizeFile() + ", "+ self.getLastModifiedDate() + ", " + self.getEncodingType();
+        return self.getTailleFichier() + ", " + self.getDateDerniereModification() + ", " + self.getTypeEncodage();

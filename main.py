@@ -14,11 +14,11 @@ mainFile = files.File(path);
 
 dataFrame = readDataFrame.ReadDataFrame(path);
 
-print("Taille du fichier : " + mainFile.getSizeFile() + " Ko");
+print("Taille du fichier : " + mainFile.getTailleFichier() + " Ko");
 
-print("Dernière modification : " + mainFile.getLastModifiedDate());
+print("Dernière modification : " + mainFile.getDateDerniereModification());
 
-print("Encodage : " + mainFile.getEncodingType());
+print("Encodage : " + mainFile.getTypeEncodage());
 
 print(mainFile.toString());
 
