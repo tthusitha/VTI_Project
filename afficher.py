@@ -1,5 +1,5 @@
 #Classe pour les affichages
-class Display:
+class Afficher:
 
     # Constructeur
     def __init__(self, enTete, file, dataFrame):
