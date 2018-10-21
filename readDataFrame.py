@@ -7,6 +7,7 @@ class ReadDataFrame :
         pathFichier = Path(file);
         self.dataFrame = pandas.read_csv(pathFichier);
 
+    #Recupère le nombre de variable du DataFrame
     def getNbVariables(self):
         return self.dataFrame.shape[1];
 
