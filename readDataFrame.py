@@ -33,18 +33,23 @@ class ReadDataFrame :
     def getNbVariablesQuantitatives(self):
         return len(self.getListeVariablesQuantitatives());
 
-    def getNbModalites(self):
-        print("");
-
-    def getNbEffectifs(self):
-        print("");
+    def getModalites(self):
+        val = "";
+        for i in range(1, self.getNbVariablesQualitatives()):
+            val += self.dataFrame.columns.values[i].__str__() + " -> "+ self.dataFrame[self.getListeVariablesQualitatives()[i]].nunique().__str__() + "\n";
+        return val;
 
     def getNbFrequences(self):
         print("");
 
+    def getNbEffectifs(self):
+        val = "";
+        for i in range(0, self.getNbVariablesQualitatives()):
+            val += self.dataFrame[self.getListeVariablesQualitatives()[i]].value_counts().__str__() + "\n";
+        return val;
+
     def getValeurMin(self):
         valeurMin = "";
-        print("Les valeurs minimales des variables quantitatives sont :")
         for i in range(0, self.getNbVariablesQuantitatives()):
             colonneMin = self.getListeVariablesQuantitatives()[i] + " -> ";
             valeurMin += colonneMin + self.dataFrame[self.getListeVariablesQuantitatives()[i]].min().__str__() + "\n";
@@ -52,7 +57,6 @@ class ReadDataFrame :
 
     def getValeurMax(self):
         valeurMax = "";
-        print("Les valeurs maximales des variables quantitatives sont :")
         for i in range(0, self.getNbVariablesQuantitatives()):
             colonneMax = self.getListeVariablesQuantitatives()[i] + " -> ";
             valeurMax += colonneMax + self.dataFrame[self.getListeVariablesQuantitatives()[i]].max().__str__() + "\n";
@@ -60,7 +64,6 @@ class ReadDataFrame :
 
     def getMediane(self):
         valeurMediane = "";
-        print("Les valeurs medianes des variables quantitatives sont :")
         for i in range(0, self.getNbVariablesQuantitatives()):
             colonneMediane = self.getListeVariablesQuantitatives()[i] + " -> ";
             valeurMediane += colonneMediane + self.dataFrame[self.getListeVariablesQuantitatives()[i]].median().__str__() + "\n";
@@ -68,7 +71,6 @@ class ReadDataFrame :
 
     def getMoyenne(self):
         valeurMoyenne = "";
-        print("Les moyennes des variables quantitatives sont :")
         for i in range(0, self.getNbVariablesQuantitatives()):
             colonneMoyenne = self.getListeVariablesQuantitatives()[i] + " -> ";
             valeurMoyenne += colonneMoyenne + self.dataFrame[self.getListeVariablesQuantitatives()[i]].mean().__str__() + "\n";
@@ -76,7 +78,6 @@ class ReadDataFrame :
 
     def getEcartType(self):
         valeurEcartType = "";
-        print("Les ecarts types des variables quantitatives sont :")
         for i in range(0, self.getNbVariablesQuantitatives()):
             colonneEcartType = self.getListeVariablesQuantitatives()[i] + " -> ";
             valeurEcartType += colonneEcartType + self.dataFrame[self.getListeVariablesQuantitatives()[i]].std().__str__() + "\n";
