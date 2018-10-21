@@ -24,17 +24,3 @@ class File :
 
     def toString(self):
         return self.getSizeFile() + ", "+ self.getLastModifiedDate() + ", " + self.getEncodingType();
-
-    #def getListeNomsVariablesQualitatives(self):
-     #   if self.readDataFrame.getNbVariablesQualitatives() != 0:
-      #      print("Nom des variables qualitatives :");
-       #     return self.readDataFrame.getListeVariablesQualitatives();
-        #else:
-         #   return "Pas de variables qualitatives";
-
-    #def getListeNomsVariablesQuantitatives(self):
-     #   if self.readDataFrame.getNbVariablesQuantitatives() != 0:
-      #      print("Nom des variables quantitaves :");
-       #     return self.readDataFrame.getListeVariablesQuantitatives();
-        #else:
-         #   return "Pas de variables quantitatives";
