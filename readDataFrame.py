@@ -35,8 +35,9 @@ class ReadDataFrame :
 
     def getModalites(self):
         val = "";
-        for i in range(1, self.getNbVariablesQualitatives()):
-            val += self.dataFrame.columns.values[i].__str__() + " -> "+ self.dataFrame[self.getListeVariablesQualitatives()[i]].nunique().__str__() + "\n";
+        for i in range(0, self.getNbVariablesQualitatives()):
+            colonne = self.getListeVariablesQualitatives()[i] + " -> ";
+            val += colonne + self.dataFrame[self.getListeVariablesQualitatives()[i]].nunique().__str__() + "\n";
         return val;
 
     def getNbFrequences(self):
