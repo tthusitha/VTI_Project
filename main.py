@@ -1,6 +1,5 @@
 import argparse
-import files
-import readDataFrame
+from Classes import files, readDataFrame
 
 parser = argparse.ArgumentParser();
 parser.add_argument("-f","--filepath", nargs="?", help="Chemin du fichier de donnees");

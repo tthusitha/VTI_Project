@@ -1,4 +1,5 @@
-import afficher;
+from Classes import afficher
+
 
 # Classe Interface Graphique
 class InterfaceGraphique:

@@ -1,4 +1,4 @@
-from constant import Constant
+from Classes.constant import Constant
 
 #Classe pour les affichages
 class Afficher:

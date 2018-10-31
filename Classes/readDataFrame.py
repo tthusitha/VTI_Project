@@ -1,6 +1,6 @@
 from pathlib import Path
 import pandas
-from constant import Constant
+from Classes.constant import Constant
 
 #Lecture de DataFrame
 class ReadDataFrame :
