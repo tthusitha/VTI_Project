@@ -1,6 +1,9 @@
 #Classe contenant les constantes
 class Constant :
 
+    PARAM_CHEMIN_FICHIER = "-f";
+    PARAM_INTERACTION_UTILISATEUR = "-u";
+    PARAM_LOG = "-l";
     TYPE_QUALITATIVE_OBJECT = "object";
     TYPE_QUANTITATIVE_INT = "int64";
     TYPE_QUANTITATIVE_FLOAT = "float64";

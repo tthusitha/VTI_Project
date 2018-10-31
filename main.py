@@ -1,10 +1,10 @@
 import argparse
-from Classes import files, readDataFrame
+from Classes import constant, files, readDataFrame
 
 parser = argparse.ArgumentParser();
-parser.add_argument("-f","--filepath", nargs="?", help="Chemin du fichier de donnees");
-parser.add_argument("-u","--user", action="store_true", help="Activer l'interaction utilisateur");
-parser.add_argument("-l","--log", action="store_true", help="Activer l'enregistrement dans un fichier de log");
+parser.add_argument(constant.Constant.PARAM_CHEMIN_FICHIER,"--filepath", nargs="?", help="Chemin du fichier de donnees");
+parser.add_argument(constant.Constant.PARAM_INTERACTION_UTILISATEUR,"--user", action="store_true", help="Activer l'interaction utilisateur");
+parser.add_argument(constant.Constant.PARAM_LOG,"--log", action="store_true", help="Activer l'enregistrement dans un fichier de log");
 args=parser.parse_args();
 
 path = args.filepath;
