@@ -1,5 +1,6 @@
 from pathlib import Path
 import pandas
+from constant import Constant
 
 #Lecture de DataFrame
 class ReadDataFrame :
@@ -21,7 +22,7 @@ class ReadDataFrame :
     def getListeVariablesQualitatives(self):
         liste = [];
         for i in range(0, len(self.dataFrame.dtypes)):
-            if self.dataFrame.dtypes[i] == "object":
+            if self.dataFrame.dtypes[i] == Constant.TYPE_QUALITATIVE_OBJECT:
                 liste.append(self.dataFrame.columns.values[i]);
         return liste;
 
@@ -57,7 +58,7 @@ class ReadDataFrame :
     def getListeVariablesQuantitatives(self):
         liste = [];
         for i in range(0, len(self.dataFrame.dtypes)):
-            if self.dataFrame.dtypes[i] == "float64" or self.dataFrame.dtypes[i] == "int64":
+            if self.dataFrame.dtypes[i] == Constant.TYPE_QUANTITATIVE_INT or self.dataFrame.dtypes[i] == Constant.TYPE_QUANTITATIVE_FLOAT:
                 liste.append(self.dataFrame.columns.values[i]);
         return liste;
 
