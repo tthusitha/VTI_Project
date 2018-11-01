@@ -1,0 +1,121 @@
+Taille du fichier: 64025
+
+Date de dernière modification: 2018-10-31 09:58:02.548859
+
+Encodage: ascii
+
+Nombre d'observations : 1295
+
+Nombre de variables : 11
+
+Nombre des variables qualitatives: 8
+
+Noms des variables qualitatives: ['outcome', 'premi', 'smstat', 'diabetes', 'highbp', 'hichol', 'angina', 'stroke']
+
+Nombre des variables qantitatives: 3
+
+Noms des variables qantitatives: ['Unnamed: 0', 'age', 'yronset']
+
+Les modalités des variables qualitatives sont: outcome -> 2
+premi -> 3
+smstat -> 4
+diabetes -> 3
+highbp -> 3
+hichol -> 3
+angina -> 3
+stroke -> 3
+
+
+Les effectifs des variables qualitatives sont: live    974
+dead    321
+Name: outcome, dtype: int64
+n     928
+y     311
+nk     56
+Name: premi, dtype: int64
+n     522
+c     390
+x     280
+nk    103
+Name: smstat, dtype: int64
+n     978
+y     248
+nk     69
+Name: diabetes, dtype: int64
+y     813
+n     406
+nk     76
+Name: highbp, dtype: int64
+n     655
+y     452
+nk    188
+Name: hichol, dtype: int64
+n     724
+y     472
+nk     99
+Name: angina, dtype: int64
+n     1063
+y      153
+nk      79
+Name: stroke, dtype: int64
+
+
+Les fréquences des variables qualitatives sont: live    0.752124
+dead    0.247876
+Name: outcome, dtype: float64
+n     0.716602
+y     0.240154
+nk    0.043243
+Name: premi, dtype: float64
+n     0.403089
+c     0.301158
+x     0.216216
+nk    0.079537
+Name: smstat, dtype: float64
+n     0.755212
+y     0.191506
+nk    0.053282
+Name: diabetes, dtype: float64
+y     0.627799
+n     0.313514
+nk    0.058687
+Name: highbp, dtype: float64
+n     0.505792
+y     0.349035
+nk    0.145174
+Name: hichol, dtype: float64
+n     0.559073
+y     0.364479
+nk    0.076448
+Name: angina, dtype: float64
+n     0.820849
+y     0.118147
+nk    0.061004
+Name: stroke, dtype: float64
+
+
+Les valeurs minimales des variables quantitatives sont: Unnamed: 0 -> 1
+age -> 35
+yronset -> 85
+
+
+Les valeurs maximales des variables quantitatives sont: Unnamed: 0 -> 6366
+age -> 69
+yronset -> 93
+
+
+Les valeurs médianes des variables quantitatives sont: Unnamed: 0 -> 3030.0
+age -> 63.0
+yronset -> 89.0
+
+
+Les moyennes des variables quantitatives sont: Unnamed: 0 -> 3156.392277992278
+age -> 60.92200772200772
+yronset -> 88.78532818532818
+
+
+Les écarts-types des variables quantitatives sont: Unnamed: 0 -> 1821.587708015421
+age -> 7.04232746911989
+yronset -> 2.5536471532392064
+
+

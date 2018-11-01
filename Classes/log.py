@@ -1,4 +1,4 @@
-import os;
+import os, io
 
 #Classe sauvegarde en fichier
 class Log :
@@ -9,7 +9,7 @@ class Log :
             os.remove(filepath);
         except OSError:
             pass;
-        self.fichierLog = open(filepath, "a");
+        self.fichierLog = io.open(filepath, mode="a", encoding="utf-8");
         self.fichier = fichier;
         self.dataFrame = dataFrame;
 
