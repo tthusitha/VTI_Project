@@ -105,3 +105,6 @@ class ReadDataFrame :
             colonneEcartType = self.getListeVariablesQuantitatives()[i] + " -> ";
             valeurEcartType += colonneEcartType + self.dataFrame[self.getListeVariablesQuantitatives()[i]].std().__str__() + "\n";
         return valeurEcartType;
+
+    #def plote(self):
+     #  self.dataFrame.plot.box().get_figure().savefig("C:/Users/Thusitha/Documents/Plot_VarQuantitatives.png");

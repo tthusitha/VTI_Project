@@ -1,5 +1,5 @@
 import argparse
-from Classes import constant, files, readDataFrame
+from Classes import constant, files, readDataFrame, interfaceUtilisateur, log
 
 parser = argparse.ArgumentParser();
 parser.add_argument(constant.Constant.PARAM_CHEMIN_FICHIER,"--filepath", nargs="?", help="Chemin du fichier de donnees");
@@ -9,48 +9,108 @@ args=parser.parse_args();
 
 path = args.filepath;
 
-mainFile = files.File(path);
+fichier = files.File(path);
 
 dataFrame = readDataFrame.ReadDataFrame(path);
 
-print("Taille du fichier : " + mainFile.getTailleFichier() + " Ko");
+interfaceUtilisateur = interfaceUtilisateur.InterfaceUtilisateur("------------- Traitement des données -------------", fichier, dataFrame);
 
-print("Dernière modification : " + mainFile.getDateDerniereModification());
+interfaceUtilisateur.nettoyerTerminal();
+interfaceUtilisateur.getAfficher().afficherEnTete();
 
-print("Encodage : " + mainFile.getTypeEncodage());
+if args.user:
+    if args.log:
+        fichierLog = log.Log("log.txt", fichier, dataFrame);
+        fichierLog.sauvegarder();
 
-#print(mainFile.getInfosFichier());
+        mainAnswer = secondAnswer = "";
 
-print("Nombre de variables : " + dataFrame.getNbVariables().__str__());
+        while mainAnswer != constant.Constant.PARAM_QUITTER :
+            interfaceUtilisateur.getAfficher().afficherMenuPrincipal();
+            mainAnswer = interfaceUtilisateur.reponse("Réponse: ");
+            while mainAnswer != constant.Constant.PARAM_QUITTER and secondAnswer != constant.Constant.PARAM_RETOUR :
+                if mainAnswer == constant.Constant.PARAM_INFO_FICHIER :
+                    interfaceUtilisateur.getAfficher().afficherMenuSuivant();
+                    interfaceUtilisateur.getAfficher().afficherMenuFichier();
+                elif mainAnswer == constant.Constant.PARAM_INFO_DONNEES :
+                    interfaceUtilisateur.getAfficher().afficherMenuSuivant();
+                    interfaceUtilisateur.getAfficher().afficherMenuDonnees();
+                elif mainAnswer == constant.Constant.PARAM_QUITTER :
+                    break;
+                else:
+                    interfaceUtilisateur.getAfficher().afficherCommandeInvalide();
+                    break;
+                secondAnswer = interfaceUtilisateur.reponse("Réponse: ");
+                if secondAnswer == constant.Constant.PARAM_TAILLE_FICHIER :
+                    interfaceUtilisateur.getAfficher().afficherTailleFichier();
+                elif secondAnswer == constant.Constant.PARAM_ENCODAGE_FICHIER :
+                    interfaceUtilisateur.getAfficher().afficherTypeEncodage();
+                elif secondAnswer == constant.Constant.PARAM_DERNIERE_MODIF_FICHIER :
+                    interfaceUtilisateur.getAfficher().afficherDateDerniereModification();
+                elif secondAnswer == constant.Constant.PARAM_TOUT_INFOS_FICHIER :
+                    interfaceUtilisateur.getAfficher().afficherTailleFichier();
+                    interfaceUtilisateur.getAfficher().afficherTypeEncodage();
+                    interfaceUtilisateur.getAfficher().afficherDateDerniereModification();
+                elif secondAnswer == constant.Constant.PARAM_INFOS_TABLE :
+                    interfaceUtilisateur.getAfficher().afficherNbVariables();
+                    interfaceUtilisateur.getAfficher().afficherNbObservations();
+                    interfaceUtilisateur.getAfficher().afficherNbVariablesQualitatives();
+                    interfaceUtilisateur.getAfficher().afficherListeVariablesQualitatives();
+                    interfaceUtilisateur.getAfficher().afficherNbVariablesQuantitatives();
+                    interfaceUtilisateur.getAfficher().afficherListeVariablesQuantitatives();
+                elif secondAnswer == constant.Constant.PARAM_INFOS_QUANTITATIVE :
+                    interfaceUtilisateur.getAfficher().afficherValeurMin();
+                    interfaceUtilisateur.getAfficher().afficherValeurMax();
+                    interfaceUtilisateur.getAfficher().getMediane();
+                    interfaceUtilisateur.getAfficher().afficherMoyenne();
+                    interfaceUtilisateur.getAfficher().getEcartType();
+                elif secondAnswer == constant.Constant.PARAM_INFOS_QUALITATIVE :
+                    interfaceUtilisateur.getAfficher().afficherModalites();
+                    interfaceUtilisateur.getAfficher().afficherNbEffectifs();
+                    interfaceUtilisateur.getAfficher().afficherNbFrequences();
+                #elif secondAnswer == gui.getDisplayer().DATA_INFORMATION_PLOT :
+                    #interfaceUtilisateur.getAfficher().displayCreatePlotSuccess();
+                    #dataFrame.createPlotBox();
+                elif secondAnswer == constant.Constant.PARAM_RETOUR :
+                    secondAnswer = False;
+                    break;
+                else:
+                    interfaceUtilisateur.getAfficher().afficherCommandeInvalide();
+                    break;
+    else:
+        #Afficher toutes les informations concernant le fichier
+        interfaceUtilisateur.getAfficher().afficherTailleFichier();
+        interfaceUtilisateur.getAfficher().afficherTypeEncodage();
+        interfaceUtilisateur.getAfficher().afficherDateDerniereModification();
 
-print("Nombre d'observations : " + dataFrame.getNbObservations().__str__());
+        #Afficher toutes les informations concernant les données
+        interfaceUtilisateur.getAfficher().afficherNbVariables();
+        interfaceUtilisateur.getAfficher().afficherNbObservations();
+        interfaceUtilisateur.getAfficher().afficherNbVariablesQualitatives();
+        interfaceUtilisateur.getAfficher().afficherListeVariablesQualitatives();
+        interfaceUtilisateur.getAfficher().afficherNbVariablesQuantitatives();
+        interfaceUtilisateur.getAfficher().afficherListeVariablesQuantitatives();
 
-print("Nombres de variables qualitatives : " + dataFrame.getNbVariablesQualitatives().__str__());
+        #Afficher toutes les informations concernant les variables quantitatives
+        interfaceUtilisateur.getAfficher().afficherDonneesQuantitatives();
+        interfaceUtilisateur.getAfficher().afficherValeurMin();
+        interfaceUtilisateur.getAfficher().afficherValeurMax();
+        interfaceUtilisateur.getAfficher().getMediane();
+        interfaceUtilisateur.getAfficher().afficherMoyenne();
+        interfaceUtilisateur.getAfficher().getEcartType();
 
-if dataFrame.getNbVariablesQualitatives() != 0:
-    print("Nom des variables qualitatives :" + dataFrame.getListeVariablesQualitatives().__str__());
-else:
-   print("Pas de variables qualitatives");
+        # Afficher toutes les informations concernant les variables qualitatives
+        interfaceUtilisateur.getAfficher().afficherDonnesQualitatives();
+        interfaceUtilisateur.getAfficher().afficherModalites();
+        interfaceUtilisateur.getAfficher().afficherNbEffectifs();
+        interfaceUtilisateur.getAfficher().afficherNbFrequences();
 
-print("Nombres de variables quantitatives : " + dataFrame.getNbVariablesQuantitatives().__str__());
+        # interfaceUtilisateur.getAfficher().displayCreatePlotSuccess();
+        # dataFrame.createPlotBox();
 
-if dataFrame.getNbVariablesQuantitatives() != 0:
-    print("Nom des variables quantitatives :" + dataFrame.getListeVariablesQuantitatives().__str__());
-else:
-   print("Pas de variables quantitatives");
+        # Sauvegarder en fichier
+        if args.log:
+            fichierLog = log.Log("log.txt", fichier, dataFrame);
+            fichierLog.sauvegarder();
 
-print("Les valeurs minimales des variables quantitatives sont :\n" + dataFrame.getValeurMin());
-
-print("Les valeurs maximales des variables quantitatives sont :\n" + dataFrame.getValeurMax());
-
-print("Les valeurs medianes des variables quantitatives sont :\n" + dataFrame.getMediane());
-
-print("Les moyennes des variables quantitatives sont :\n" + dataFrame.getMoyenne());
-
-print("Les ecarts types des variables quantitatives sont :\n" + dataFrame.getEcartType());
-
-print("Le nombre d'effectifs des variables qualitatives : \n" + dataFrame.getNbEffectifs());
-
-print("Les modalités des variables qualitatives : \n" + dataFrame.getModalites());
-
-print("Les fréquences des variables qualitatives : \n" + dataFrame.getNbFrequences());
+interfaceUtilisateur.nettoyerTerminal();

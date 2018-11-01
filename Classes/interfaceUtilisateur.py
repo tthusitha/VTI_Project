@@ -1,12 +1,12 @@
 from Classes import afficher
-
+import os
 
 # Classe Interface Graphique
-class InterfaceGraphique:
+class InterfaceUtilisateur:
 
     # Constructeur
-    def __init__(self, enTete, file, dataFrame):
-        self.afficher = afficher.Afficher(enTete, file, dataFrame);
+    def __init__(self, enTete, fichier, dataFrame):
+        self.afficher = afficher.Afficher(enTete, fichier, dataFrame);
 
     # Attendre que l'utilisateur appuie sur une touche
     def debut(self):
@@ -23,5 +23,15 @@ class InterfaceGraphique:
     # Retourner la valeur de la réponse
     def reponse(self, texte):
         value = input(texte);
+        self.nettoyerTerminal();
         self.getAfficher().afficherEnTete();
         return value;
+
+    # Nettoyer le terminal
+    def nettoyerTerminal(self):
+        # windows
+        if os.name == 'nt':
+            _ = os.system('cls');
+        # mac & linux
+        else:
+            _ = os.system('clear');

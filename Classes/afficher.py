@@ -17,6 +17,32 @@ class Afficher:
     def afficherEnTete(self):
         self.afficher(self.enTete);
 
+    # Afficher le menu principal
+    def afficherMenuPrincipal(self):
+        self.afficher("Que voulez-vous faire ?");
+        print("\u0009" + Constant.PARAM_INFO_FICHIER + " - Afficher les informations sur le fichier");
+        print("\u0009" + Constant.PARAM_INFO_DONNEES + " - Afficher les informations sur les donnees");
+        self.afficher("\u0009" + Constant.PARAM_QUITTER + " - Quitter");
+
+    # Afficher le menu suivant
+    def afficherMenuSuivant(self):
+        self.afficher("Quelle informations voulez-vous afficher ?");
+
+    # Afficher le menu concernant les informations du fichier
+    def afficherMenuFichier(self):
+        print("\u0009" + Constant.PARAM_TAILLE_FICHIER + " - Afficher la taille du fichier");
+        print("\u0009" + Constant.PARAM_ENCODAGE_FICHIER + " - Afficher l'encodage du fichier");
+        print("\u0009" + Constant.PARAM_DERNIERE_MODIF_FICHIER + " - Afficher la date de derniere modification du fichier");
+        print("\u0009" + Constant.PARAM_TOUT_INFOS_FICHIER + " - Afficher l'ensemble des informations");
+        self.afficher("\u0009" + Constant.PARAM_RETOUR + " - Retour au menu principal");
+
+    # Afficher le menu concernant les informations des données
+    def afficherMenuDonnees(self):
+        print("\u0009" + Constant.PARAM_INFOS_QUANTITATIVE + " - Afficher les informations sur les variables quantitatives");
+        print("\u0009" + Constant.PARAM_INFOS_QUALITATIVE + " - Afficher les informations sur les variables qualitatives");
+        print("\u0009" + Constant.PARAM_INFOS_TABLE + " - Afficher les informations sur la table de données");
+        self.afficher("\u0009" + Constant.PARAM_RETOUR + " - Retour au menu principal");
+
     # Afficher la taille du fichier
     def afficherTailleFichier(self):
         self.afficher("Taille du fichier : " + self.file.getTailleFichier() + " Ko");
@@ -28,10 +54,6 @@ class Afficher:
     # Afficher le type d'encodage
     def afficherTypeEncodage(self):
         self.afficher("Encodage : " + self.file.getTypeEncodage());
-
-    # Afficher la taille du fichier, la date de la dernière modification, le type d'encodage
-    def afficherInfosFichier(self):
-        self.afficher(self.afficherTailleFichier() + ", " + self.afficherDateDerniereModification() + ", " + self.afficherTypeEncodage());
 
     # Afficher le nombre de variables
     def afficherNbVariables(self):
@@ -94,31 +116,6 @@ class Afficher:
     # Afficher les écart-types des variables quantitatives
     def getEcartType(self):
         self.afficher("Les ecarts types des variables quantitatives sont : " + self.dataFrame.getEcartType().__str__());
-
-    # Afficher le menu principal
-    def afficherMenuPrincipal(self):
-        self.afficher("Que voulez-vous faire ?");
-        print("\u0009" + Constant.PARAM_INFO_FICHIER + " - Afficher les informations sur le fichier");
-        print("\u0009" + Constant.PARAM_INFO_DONNEES + " - Afficher les informations sur les donnees");
-        self.afficher("\u0009" + Constant.PARAM_QUITTER + " - Quitter");
-
-    # Afficher le menu suivant
-    def afficherMenuSuivant(self):
-        self.afficher("Quelle informations voulez-vous afficher ?");
-
-    # Afficher le menu concernant les informations du fichier
-    def afficherMenuFichier(self):
-        self.afficher("\u0009" + Constant.PARAM_TAILLE_FICHIER + " - Afficher la taille du fichier");
-        print("\u0009" + Constant.PARAM_ENCODAGE_FICHIER + " - Afficher l'encodage du fichier");
-        print("\u0009" + Constant.PARAM_DERNIERE_MODIF_FICHIER + " - Afficher la date de derniere modification du fichier");
-        print("\u0009" + Constant.PARAM_TOUT_INFOS_FICHIER + " - Afficher l'ensemble des informations");
-        self.afficher("\u0009" + Constant.PARAM_RETOUR + " - Retour au menu principal");
-
-    # Afficher le menu concernant les informations des données
-    def afficherMenuDonnees(self):
-        self.afficher("\u0009" + Constant.PARAM_INFOS_QUANTITATIVE + " - Afficher les informations sur les variables quantitatives");
-        print("\u0009" + Constant.PARAM_INFOS_QUALITATIVE + " - Afficher les informations sur les variables qualitatives");
-        self.afficher("\u0009" + Constant.PARAM_RETOUR + " - Retour au menu principal");
 
     # Afficher commande invalide
     def afficherCommandeInvalide(self):
