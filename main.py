@@ -48,26 +48,13 @@ if args.user:
                 elif secondAnswer == constant.Constant.PARAM_DERNIERE_MODIF_FICHIER :
                     interfaceUtilisateur.getAfficher().afficherDateDerniereModification();
                 elif secondAnswer == constant.Constant.PARAM_TOUT_INFOS_FICHIER :
-                    interfaceUtilisateur.getAfficher().afficherTailleFichier();
-                    interfaceUtilisateur.getAfficher().afficherTypeEncodage();
-                    interfaceUtilisateur.getAfficher().afficherDateDerniereModification();
+                    interfaceUtilisateur.getAfficher().afficherInfosFichier();
                 elif secondAnswer == constant.Constant.PARAM_INFOS_TABLE :
-                    interfaceUtilisateur.getAfficher().afficherNbVariables();
-                    interfaceUtilisateur.getAfficher().afficherNbObservations();
-                    interfaceUtilisateur.getAfficher().afficherNbVariablesQualitatives();
-                    interfaceUtilisateur.getAfficher().afficherListeVariablesQualitatives();
-                    interfaceUtilisateur.getAfficher().afficherNbVariablesQuantitatives();
-                    interfaceUtilisateur.getAfficher().afficherListeVariablesQuantitatives();
+                    interfaceUtilisateur.getAfficher().afficherDonneesTable();
                 elif secondAnswer == constant.Constant.PARAM_INFOS_QUANTITATIVE :
-                    interfaceUtilisateur.getAfficher().afficherValeurMin();
-                    interfaceUtilisateur.getAfficher().afficherValeurMax();
-                    interfaceUtilisateur.getAfficher().getMediane();
-                    interfaceUtilisateur.getAfficher().afficherMoyenne();
-                    interfaceUtilisateur.getAfficher().getEcartType();
+                    interfaceUtilisateur.getAfficher().afficherDonneesQuantitatives();
                 elif secondAnswer == constant.Constant.PARAM_INFOS_QUALITATIVE :
-                    interfaceUtilisateur.getAfficher().afficherModalites();
-                    interfaceUtilisateur.getAfficher().afficherNbEffectifs();
-                    interfaceUtilisateur.getAfficher().afficherNbFrequences();
+                    interfaceUtilisateur.getAfficher().afficherDonnesQualitatives();
                 #elif secondAnswer == gui.getDisplayer().DATA_INFORMATION_PLOT :
                     #interfaceUtilisateur.getAfficher().displayCreatePlotSuccess();
                     #dataFrame.createPlotBox();
@@ -79,31 +66,16 @@ if args.user:
                     break;
     else:
         #Afficher toutes les informations concernant le fichier
-        interfaceUtilisateur.getAfficher().afficherTailleFichier();
-        interfaceUtilisateur.getAfficher().afficherTypeEncodage();
-        interfaceUtilisateur.getAfficher().afficherDateDerniereModification();
+        interfaceUtilisateur.getAfficher().afficherInfosFichier();
 
         #Afficher toutes les informations concernant les données
-        interfaceUtilisateur.getAfficher().afficherNbVariables();
-        interfaceUtilisateur.getAfficher().afficherNbObservations();
-        interfaceUtilisateur.getAfficher().afficherNbVariablesQualitatives();
-        interfaceUtilisateur.getAfficher().afficherListeVariablesQualitatives();
-        interfaceUtilisateur.getAfficher().afficherNbVariablesQuantitatives();
-        interfaceUtilisateur.getAfficher().afficherListeVariablesQuantitatives();
+        interfaceUtilisateur.getAfficher().afficherDonneesTable();
 
         #Afficher toutes les informations concernant les variables quantitatives
         interfaceUtilisateur.getAfficher().afficherDonneesQuantitatives();
-        interfaceUtilisateur.getAfficher().afficherValeurMin();
-        interfaceUtilisateur.getAfficher().afficherValeurMax();
-        interfaceUtilisateur.getAfficher().getMediane();
-        interfaceUtilisateur.getAfficher().afficherMoyenne();
-        interfaceUtilisateur.getAfficher().getEcartType();
 
         # Afficher toutes les informations concernant les variables qualitatives
         interfaceUtilisateur.getAfficher().afficherDonnesQualitatives();
-        interfaceUtilisateur.getAfficher().afficherModalites();
-        interfaceUtilisateur.getAfficher().afficherNbEffectifs();
-        interfaceUtilisateur.getAfficher().afficherNbFrequences();
 
         # interfaceUtilisateur.getAfficher().displayCreatePlotSuccess();
         # dataFrame.createPlotBox();
@@ -114,3 +86,4 @@ if args.user:
             fichierLog.sauvegarder();
 
 interfaceUtilisateur.nettoyerTerminal();
+interfaceUtilisateur.getAfficher().afficher("Merci d'avoir utilisé cette application :)");

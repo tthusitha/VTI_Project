@@ -55,6 +55,12 @@ class Afficher:
     def afficherTypeEncodage(self):
         self.afficher("Encodage : " + self.file.getTypeEncodage());
 
+    # Afficher la taille du fichier, la date de la dernière modification, le type d'encodage
+    def afficherInfosFichier(self):
+        self.afficherTailleFichier();
+        self.afficherDateDerniereModification();
+        self.afficherTypeEncodage();
+
     # Afficher le nombre de variables
     def afficherNbVariables(self):
         self.afficher("Nombre de variables : " + self.dataFrame.getNbVariables().__str__());
@@ -116,6 +122,29 @@ class Afficher:
     # Afficher les écart-types des variables quantitatives
     def getEcartType(self):
         self.afficher("Les ecarts types des variables quantitatives sont : " + self.dataFrame.getEcartType().__str__());
+
+    #Afficher données de la table
+    def afficherDonneesTable(self):
+        self.afficherNbVariables();
+        self.afficherNbObservations();
+        self.afficherNbVariablesQualitatives();
+        self.afficherListeVariablesQualitatives();
+        self.afficherNbVariablesQuantitatives();
+        self.afficherListeVariablesQuantitatives();
+
+     #Afficher données quantitatives
+    def afficherDonneesQuantitatives(self):
+        self.afficherValeurMin();
+        self.afficherValeurMax();
+        self.getMediane();
+        self.afficherMoyenne();
+        self.getEcartType();
+
+    #Afficher données qualitatives
+    def afficherDonnesQualitatives(self):
+        self.afficherModalites();
+        self.afficherNbEffectifs();
+        self.afficherNbFrequences();
 
     # Afficher commande invalide
     def afficherCommandeInvalide(self):
