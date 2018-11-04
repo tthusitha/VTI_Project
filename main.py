@@ -112,6 +112,7 @@ try:
             fichierLog = log.Log("log.txt", fichier, dataFrame);
             fichierLog.sauvegarder();
 
+    interfaceUtilisateur.reponse("Veuillez appuyer sur un bouton pour continuer....");
     interfaceUtilisateur.nettoyerTerminal();
     interfaceUtilisateur.getAfficher().afficher("Merci d'avoir utilisé cette application :)");
 
