@@ -92,6 +92,12 @@ class Afficher:
     def afficherNbFrequences(self):
         self.afficher("Les fréquences des variables qualitatives : " + self.dataFrame.getNbFrequences().__str__());
 
+    #Afficher les données qualitatives
+    def afficherInfosDonnesQualitatives(self):
+        self.afficherModalites();
+        self.afficherNbEffectifs();
+        self.afficherNbFrequences();
+
     # Afficher le nombre de variables quantitatives
     def afficherNbVariablesQuantitatives(self):
         self.afficher("Nombres de variables quantitatives : " + self.dataFrame.getNbVariablesQuantitatives().__str__());
@@ -123,8 +129,16 @@ class Afficher:
     def getEcartType(self):
         self.afficher("Les ecarts types des variables quantitatives sont : " + self.dataFrame.getEcartType().__str__());
 
-    #Afficher données de la table
-    def afficherDonneesTable(self):
+     #Afficher les données quantitatives
+    def afficherInfosDonneesQuantitatives(self):
+        self.afficherValeurMin();
+        self.afficherValeurMax();
+        self.getMediane();
+        self.afficherMoyenne();
+        self.getEcartType();
+
+    #Afficher les données de la table
+    def afficherInfosDonneesTable(self):
         self.afficherNbVariables();
         self.afficherNbObservations();
         self.afficherNbVariablesQualitatives();
@@ -132,19 +146,13 @@ class Afficher:
         self.afficherNbVariablesQuantitatives();
         self.afficherListeVariablesQuantitatives();
 
-     #Afficher données quantitatives
-    def afficherDonneesQuantitatives(self):
-        self.afficherValeurMin();
-        self.afficherValeurMax();
-        self.getMediane();
-        self.afficherMoyenne();
-        self.getEcartType();
+    #Afficher toutes les données
+    def afficherTout(self):
+        self.afficherInfosFichier();
+        self.afficherInfosDonneesTable();
+        self.afficherInfosDonnesQualitatives();
+        self.afficherInfosDonneesQuantitatives();
 
-    #Afficher données qualitatives
-    def afficherDonnesQualitatives(self):
-        self.afficherModalites();
-        self.afficherNbEffectifs();
-        self.afficherNbFrequences();
 
     # Afficher commande invalide
     def afficherCommandeInvalide(self):
