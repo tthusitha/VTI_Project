@@ -1,4 +1,4 @@
-#Classe contenant les constantes
+# Classe contenant les constantes
 class Constant :
 
     PARAM_CHEMIN_FICHIER = "-f";

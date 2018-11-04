@@ -1,6 +1,6 @@
 from Classes.constant import Constant
 
-#Classe pour les affichages
+# Classe pour les affichages
 class Afficher:
 
     # Constructeur
@@ -129,7 +129,7 @@ class Afficher:
     def getEcartType(self):
         self.afficher("Les ecarts types des variables quantitatives sont : " + self.dataFrame.getEcartType().__str__());
 
-     #Afficher les données quantitatives
+     # Afficher les données quantitatives
     def afficherInfosDonneesQuantitatives(self):
         self.afficherValeurMin();
         self.afficherValeurMax();
@@ -137,7 +137,7 @@ class Afficher:
         self.afficherMoyenne();
         self.getEcartType();
 
-    #Afficher les données de la table
+    # Afficher les données de la table
     def afficherInfosDonneesTable(self):
         self.afficherNbVariables();
         self.afficherNbObservations();
@@ -146,7 +146,7 @@ class Afficher:
         self.afficherNbVariablesQuantitatives();
         self.afficherListeVariablesQuantitatives();
 
-    #Afficher toutes les données
+    # Afficher toutes les données
     def afficherTout(self):
         self.afficherInfosFichier();
         self.afficherInfosDonneesTable();

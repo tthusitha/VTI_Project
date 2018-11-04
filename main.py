@@ -1,5 +1,5 @@
 import argparse
-from Classes import constant, files, readDataFrame, interfaceUtilisateur, log
+from Classes import constant, file, readDataFrame, interfaceUtilisateur, log
 
 try:
     parser = argparse.ArgumentParser();
@@ -10,7 +10,7 @@ try:
 
     # Récupérer le paramètre et instancier les classes File et ReadDataFrame
     path = args.filepath;
-    fichier = files.File(path);
+    fichier = file.File(path);
     dataFrame = readDataFrame.ReadDataFrame(path);
 
     # Instancier la classe InterfaceUtilisateur

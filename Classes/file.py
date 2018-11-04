@@ -1,6 +1,6 @@
 from pathlib import Path
 from datetime import datetime
-import chardet
+import os, chardet
 
 # Classe Fichier
 class File :
@@ -8,7 +8,12 @@ class File :
     # Constructeur
     def __init__(self, path):
         self.path = path;
-        self.pathFichier = Path(self.path);
+
+        try:
+            self.pathFichier = Path(self.path);
+        except os.error:
+            print("Le fichier est introuvable, veuillez vérifier son chemin d'accès");
+            exit();
 
     # Retourner la taille du fichier
     def getTailleFichier(self) :

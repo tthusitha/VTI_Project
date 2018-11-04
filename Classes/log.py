@@ -1,6 +1,6 @@
 import os, io
 
-#Classe sauvegarde en fichier
+# Classe sauvegarde en fichier
 class Log :
 
     # Constructeur
@@ -13,10 +13,11 @@ class Log :
         self.fichier = fichier;
         self.dataFrame = dataFrame;
 
-    #Ecrire en fichier
+    # Ecrire en fichier
     def ecrire(self, texte):
         self.fichierLog.write(texte + "\n\n");
 
+    # Sauvegarder en fichier
     def sauvegarder(self):
         liste = [];
 
