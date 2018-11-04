@@ -23,11 +23,6 @@ try:
     # Vérifier si l'interaction utilisateur est choisi
     if args.user:
 
-        # Vérifier si la sauvegarde en fichier de log est choisi
-        if args.log:
-            fichierLog = log.Log(args.log, fichier, dataFrame);
-            fichierLog.sauvegarder();
-
             choixDepart = "";
             choixAffichage = "";
 
@@ -111,8 +106,24 @@ try:
         dataFrame.genererGraph();
 
         # Sauvegarder en fichier
-        fichierLog = log.Log("log.txt", fichier, dataFrame);
-        fichierLog.sauvegarder();
+    fichierLog = log.Log(fichier, dataFrame);
+        #fichierLog.sauvegarder();
+
+    try:
+    # Vérifier si la sauvegarde en fichier de log est choisi
+        if args.log is not None:
+            pathFichierLog = args.log;
+
+            if args.log.endswith("/") is False:
+                pathFichierLog += "/" + constant.Constant.CHEMIN_FICHIER_LOG;
+            else:
+                pathFichierLog += constant.Constant.CHEMIN_FICHIER_LOG;
+        else:
+            pathFichierLog = constant.Constant.CHEMIN_FICHIER_LOG;
+
+        fichierLog.sauvegarder(pathFichierLog);
+    except TypeError:
+        pass;
 
     interfaceUtilisateur.reponse("Veuillez appuyer sur un bouton pour continuer....");
     interfaceUtilisateur.nettoyerTerminal();
