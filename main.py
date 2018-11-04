@@ -112,7 +112,7 @@ try:
 
         # Sauvegarder en fichier
         if args.log:
-            fichierLog = log.Log(args.log, fichier, dataFrame);
+            fichierLog = log.Log("log.txt", fichier, dataFrame);
             fichierLog.sauvegarder();
 
     interfaceUtilisateur.reponse("Veuillez appuyer sur un bouton pour continuer....");

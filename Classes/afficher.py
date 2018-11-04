@@ -77,7 +77,7 @@ class Afficher:
     # Afficher la liste des variables qualitatives
     def afficherListeVariablesQualitatives(self):
         if self.dataFrame.getNbVariablesQualitatives() != 0:
-            self.afficher("Nom des variables qualitatives :" + self.dataFrame.getListeVariablesQualitatives().__str__());
+            self.afficher("Noms des variables qualitatives :" + self.dataFrame.getListeVariablesQualitatives().__str__());
         else:
             self.afficher("Pas de variables qualitatives");
 
@@ -106,7 +106,7 @@ class Afficher:
     # Afficher la liste de variables quantitatives
     def afficherListeVariablesQuantitatives(self):
         if self.dataFrame.getNbVariablesQuantitatives() != 0:
-            self.afficher("Nom des variables quantitatives :" + self.dataFrame.getListeVariablesQuantitatives().__str__());
+            self.afficher("Noms des variables quantitatives :" + self.dataFrame.getListeVariablesQuantitatives().__str__());
         else:
             self.afficher("Pas de variables quantitatives");
 
