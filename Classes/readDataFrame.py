@@ -112,4 +112,4 @@ class ReadDataFrame :
 
     # Générer le plot de distribution
     def genererGraph(self):
-        self.dataFrame.plot.box().get_figure().savefig("C:/Users/Thusitha/Documents/Plot_VarQuantitatives.png");
+        self.dataFrame.plot.box().get_figure().savefig("Plot.png");
