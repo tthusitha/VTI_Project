@@ -7,8 +7,8 @@ class ReadDataFrame :
 
     # Constructeur
     def __init__(self, file):
-        pathFichier = Path(file);
         try:
+            pathFichier = Path(file);
             self.dataFrame = pandas.read_csv(pathFichier);
         except os.error:
             print("Le fichier est introuvable, veuillez vérifier son chemin d'accès");
@@ -110,5 +110,6 @@ class ReadDataFrame :
             valeurEcartType += colonneEcartType + self.dataFrame[self.getListeVariablesQuantitatives()[i]].std().__str__() + "\n";
         return valeurEcartType;
 
-    #def plote(self):
-     #  self.dataFrame.plot.box().get_figure().savefig("C:/Users/Thusitha/Documents/Plot_VarQuantitatives.png");
+    # Générer le plot de distribution
+    def genererGraph(self):
+        self.dataFrame.plot.box().get_figure().savefig("C:/Users/Thusitha/Documents/Plot_VarQuantitatives.png");

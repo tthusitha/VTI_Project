@@ -41,6 +41,7 @@ class Afficher:
         print("\u0009" + Constant.PARAM_INFOS_QUANTITATIVE + " - Afficher les informations sur les variables quantitatives");
         print("\u0009" + Constant.PARAM_INFOS_QUALITATIVE + " - Afficher les informations sur les variables qualitatives");
         print("\u0009" + Constant.PARAM_INFOS_TABLE + " - Afficher les informations sur la table de données");
+        print("\u0009" + Constant.PARAM_PLOT + " - Générer plot");
         self.afficher("\u0009" + Constant.PARAM_RETOUR + " - Retour au menu principal");
 
     # Afficher la taille du fichier
@@ -153,6 +154,9 @@ class Afficher:
         self.afficherInfosDonnesQualitatives();
         self.afficherInfosDonneesQuantitatives();
 
+    # Afficher que la génération du plot a été effectuée par succès
+    def afficherGenerationSuccesPlot(self):
+        self.afficher("Le plot de distribution a été généré");
 
     # Afficher commande invalide
     def afficherCommandeInvalide(self):

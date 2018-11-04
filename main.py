@@ -5,7 +5,7 @@ try:
     parser = argparse.ArgumentParser();
     parser.add_argument(constant.Constant.PARAM_CHEMIN_FICHIER,"--filepath", nargs="?", help="Chemin du fichier à traiter");
     parser.add_argument(constant.Constant.PARAM_INTERACTION_UTILISATEUR,"--user", action="store_true", help="Activer l'interaction avec l'utilisateur");
-    parser.add_argument(constant.Constant.PARAM_LOG,"--log", action="store_true", help="Activer l'enregistrement dans un fichier de log");
+    parser.add_argument(constant.Constant.PARAM_LOG,"--log", nargs="?", help="Activer l'enregistrement dans un fichier de log");
     args = parser.parse_args();
 
     # Récupérer le paramètre et instancier les classes File et ReadDataFrame
@@ -25,7 +25,7 @@ try:
 
         # Vérifier si la sauvegarde en fichier de log est choisi
         if args.log:
-            fichierLog = log.Log("log.txt", fichier, dataFrame);
+            fichierLog = log.Log(args.log, fichier, dataFrame);
             fichierLog.sauvegarder();
 
             choixDepart = "";
@@ -87,9 +87,11 @@ try:
                     # Si l'utilisateur veut voir les informations des données qualitatives
                     elif choixAffichage == constant.Constant.PARAM_INFOS_QUALITATIVE :
                         interfaceUtilisateur.getAfficher().afficherInfosDonnesQualitatives();
-                    #elif secondAnswer == gui.getDisplayer().DATA_INFORMATION_PLOT :
-                        #interfaceUtilisateur.getAfficher().displayCreatePlotSuccess();
-                        #dataFrame.createPlotBox();
+
+                    # Génerer le plot de distribution
+                    elif choixAffichage == constant.Constant.PARAM_PLOT :
+                        interfaceUtilisateur.getAfficher().afficherGenerationSuccesPlot();
+                        dataFrame.genererGraph();
 
                     # Si l'utilisateur souhaite revenir en arrière
                     elif choixAffichage == constant.Constant.PARAM_RETOUR :
@@ -101,15 +103,16 @@ try:
                         interfaceUtilisateur.getAfficher().afficherCommandeInvalide();
                         break;
     else:
-        #Afficher toutes les informations
+        # Afficher toutes les informations
         interfaceUtilisateur.getAfficher().afficherTout();
 
-        # interfaceUtilisateur.getAfficher().displayCreatePlotSuccess();
-        # dataFrame.createPlotBox();
+        # Génerer le plot de distribution
+        interfaceUtilisateur.getAfficher().afficherGenerationSuccesPlot();
+        dataFrame.genererGraph();
 
         # Sauvegarder en fichier
         if args.log:
-            fichierLog = log.Log("log.txt", fichier, dataFrame);
+            fichierLog = log.Log(args.log, fichier, dataFrame);
             fichierLog.sauvegarder();
 
     interfaceUtilisateur.reponse("Veuillez appuyer sur un bouton pour continuer....");

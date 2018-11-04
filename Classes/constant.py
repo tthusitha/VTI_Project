@@ -18,3 +18,4 @@ class Constant :
     PARAM_INFOS_TABLE = "b";
     PARAM_INFOS_QUANTITATIVE = "v";
     PARAM_INFOS_QUALITATIVE = "l";
+    PARAM_PLOT = "p";
