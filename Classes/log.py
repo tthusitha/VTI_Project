@@ -48,3 +48,4 @@ class Log :
 
         for i in range(0, len(liste)):
             self.ecrire(liste[i]);
+        self.fichierLog.close();
