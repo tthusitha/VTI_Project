@@ -51,7 +51,7 @@ class Log :
             liste.append("Les écarts-types des variables quantitatives sont: \n" + self.dataFrame.getEcartType().__str__());
 
             for i in range(0, len(liste)):
-                fichierLog.write(liste[i]);
+                fichierLog.write(liste[i]+"\n");
         except FileNotFoundError:
             print("Chemin du fichier de log invalide");
             exit();

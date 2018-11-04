@@ -5,7 +5,8 @@ try:
     parser = argparse.ArgumentParser();
     parser.add_argument(constant.Constant.PARAM_CHEMIN_FICHIER,"--filepath", nargs="?", help="Chemin du fichier à traiter");
     parser.add_argument(constant.Constant.PARAM_INTERACTION_UTILISATEUR,"--user", action="store_true", help="Activer l'interaction avec l'utilisateur");
-    parser.add_argument(constant.Constant.PARAM_LOG,"--log", nargs="?", help="Activer l'enregistrement dans un fichier de log");
+    parser.add_argument(constant.Constant.PARAM_LOG,"--log", action="store_true", help="Activer l'enregistrement dans un fichier de log");
+    parser.add_argument(constant.Constant.PARAM_CHEMIN_FICHIER_LOG, "--filePathLog", nargs="?", help="Chemin du fichier de log");
     args = parser.parse_args();
 
     # Récupérer le paramètre et instancier les classes File et ReadDataFrame
@@ -20,11 +21,12 @@ try:
     interfaceUtilisateur.nettoyerTerminal();
     interfaceUtilisateur.getAfficher().afficherEnTete();
 
+    choixDepart = "";
+    choixAffichage = "";
+    pathFichierLog = "";
+
     # Vérifier si l'interaction utilisateur est choisi
     if args.user:
-
-            choixDepart = "";
-            choixAffichage = "";
 
             # Tant que l'utilisateur ne veut pas quitter on continue
             while choixDepart != constant.Constant.PARAM_QUITTER :
@@ -105,25 +107,21 @@ try:
         interfaceUtilisateur.getAfficher().afficherGenerationSuccesPlot();
         dataFrame.genererGraph();
 
-        # Sauvegarder en fichier
-    fichierLog = log.Log(fichier, dataFrame);
-        #fichierLog.sauvegarder();
-
-    try:
     # Vérifier si la sauvegarde en fichier de log est choisi
-        if args.log is not None:
-            pathFichierLog = args.log;
+    if args.log:
+        fichierLog = log.Log(fichier, dataFrame);
 
-            if args.log.endswith("/") is False:
-                pathFichierLog += "/" + constant.Constant.CHEMIN_FICHIER_LOG;
+        if args.filePathLog is not None:
+            pathFichierLog = args.filePathLog;
+
+            if pathFichierLog.endswith("/") is False:
+                pathFichierLog += "/" + constant.Constant.NOM_FICHIER_LOG;
             else:
-                pathFichierLog += constant.Constant.CHEMIN_FICHIER_LOG;
+                pathFichierLog += constant.Constant.NOM_FICHIER_LOG;
         else:
-            pathFichierLog = constant.Constant.CHEMIN_FICHIER_LOG;
+            pathFichierLog = constant.Constant.NOM_FICHIER_LOG;
 
         fichierLog.sauvegarder(pathFichierLog);
-    except TypeError:
-        pass;
 
     interfaceUtilisateur.reponse("Veuillez appuyer sur un bouton pour continuer....");
     interfaceUtilisateur.nettoyerTerminal();
